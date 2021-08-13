@@ -1,0 +1,368 @@
+> db.users.find().pretty()
+{
+        "_id" : ObjectId("61167a7c1a41690cfe3dfe24"),
+        "first_name" : "Aurelie",
+        "last_name" : "Oneill",
+        "email" : "aoneill0@accuweather.com",
+        "gender" : "Female",
+        "ip_address" : "107.103.149.46",
+        "age" : 20
+}
+> db.users.insertMany({ "first_name": "Irv",  "last_name": "Scurlock", "email": "iscurlock0@google.it", "gender": "Male", "ip_address": "218.117.128.169", "age": 47},{ "first_name": "Jenna", "last_name": "Stile", "email": "jstile1@lycos.com","gender": "Female","ip_address": "146.42.52.250", "age": 64})
+uncaught exception: TypeError: documents.map is not a function :
+DBCollection.prototype.insertMany@src/mongo/shell/crud_api.js:307:17
+@(shell):1:1
+> db.users.insertMany({ "first_name": "Irv",  "last_name": "Scurlock", "email": "iscurlock0@google.it", "gender": "Male", "ip_address": "218.117.128.169", "age": 47},{ "first_name": "Jenna", "last_name": "Stile", "email": "jstile1@lycos.com","gender": "Female","ip_address": "146.42.52.250", "age": 64})
+uncaught exception: TypeError: documents.map is not a function :
+DBCollection.prototype.insertMany@src/mongo/shell/crud_api.js:307:17
+@(shell):1:1
+
+<-----------------------------------------------------------------------------------insertMany-------------------------------------------------------------------------->
+> db.users.insertMany([{ "first_name": "Irv",  "last_name": "Scurlock", "email": "iscurlock0@google.it", "gender": "Male", "ip_address": "218.117.128.169", "age": 47},{ "first_name": "Jenna", "last_name": "Stile", "email": "jstile1@lycos.com","gender": "Female","ip_address": "146.42.52.250", "age": 64}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("61168857d628584e98e28f5a"),
+                ObjectId("61168857d628584e98e28f5b")
+        ]
+}
+> db.users.find().pretty()
+{
+        "_id" : ObjectId("61167a7c1a41690cfe3dfe24"),
+        "first_name" : "Aurelie",
+        "last_name" : "Oneill",
+        "email" : "aoneill0@accuweather.com",
+        "gender" : "Female",
+        "ip_address" : "107.103.149.46",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("61168857d628584e98e28f5a"),
+        "first_name" : "Irv",
+        "last_name" : "Scurlock",
+        "email" : "iscurlock0@google.it",
+        "gender" : "Male",
+        "ip_address" : "218.117.128.169",
+        "age" : 47
+}
+{
+        "_id" : ObjectId("61168857d628584e98e28f5b"),
+        "first_name" : "Jenna",
+        "last_name" : "Stile",
+        "email" : "jstile1@lycos.com",
+        "gender" : "Female",
+        "ip_address" : "146.42.52.250",
+        "age" : 64
+}
+> db.users.insertMany([{)
+...   "first_name": "Alvinia",
+...   "last_name": "Jancy",
+...   "email": "ajancy0@w3.org",
+...   "gender": "Polygender",
+...   "ip_address": "13.199.181.255",
+...   "age": 33
+... }, {
+...   "first_name": "Leeland",
+...   "last_name": "Brand",
+...   "email": "lbrand1@google.pl",
+...   "gender": "Bigender",
+...   "ip_address": "246.39.51.177",
+...   "age": 78
+... }, {
+...   "first_name": "Waylon",
+...   "last_name": "Idle",
+...   "email": "widle2@so-net.ne.jp",
+...   "gender": "Genderfluid",
+...   "ip_address": "247.242.233.52",
+...   "age": 44
+... }, {
+...   "first_name": "Roxine",
+...   "last_name": "Trencher",
+...   "email": "rtrencher3@nyu.edu",
+...   "gender": "Non-binary",
+...   "ip_address": "90.144.11.241",
+...   "age": 57
+... }, {
+...   "first_name": "Daniele",
+...   "last_name": "Learmount",
+...   "email": "dlearmount4@gravatar.com",
+...   "gender": "Male",
+...   "ip_address": "203.144.104.95",
+...   "age": 44
+... }, {
+...   "first_name": "Avram",
+...   "last_name": "Koppen",
+...   "email": "akoppen5@princeton.edu",
+...   "gender": "Polygender",
+...   "ip_address": "6.4.132.49",
+...   "age": 37
+... }, {
+...   "first_name": "Janos",
+...   "last_name": "Oman",
+...   "email": "joman6@parallels.com",
+...   "gender": "Non-binary",
+...   "ip_address": "87.194.38.125",
+...   "age": 77
+... }])
+uncaught exception: SyntaxError: expected property name, got ')' :
+@(shell):1:22
+> db.users.insertMany([{ "first_name": "Alvinia","last_name": "Jancy", "email": "ajancy0@w3.org", "gender": "Male", "ip_address": "13.199.181.255","age": 33},{ "first_name": "Leeland","last_name": "Brand", "email": "lbrand1@google.pl","gender": "Male", "ip_address": "246.39.51.177", "age": 78},{ "first_name": "Waylon", "last_name": "Idle","email": "widle2@so-net.ne.jp", "gender": "Genderfluid","ip_address": "247.242.233.52", "age": 44}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("61168ab0d628584e98e28f5c"),
+                ObjectId("61168ab0d628584e98e28f5d"),
+                ObjectId("61168ab0d628584e98e28f5e")
+        ]
+}
+> db.users.find().pretty()
+{
+        "_id" : ObjectId("61167a7c1a41690cfe3dfe24"),
+        "first_name" : "Aurelie",
+        "last_name" : "Oneill",
+        "email" : "aoneill0@accuweather.com",
+        "gender" : "Female",
+        "ip_address" : "107.103.149.46",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("61168857d628584e98e28f5a"),
+        "first_name" : "Irv",
+        "last_name" : "Scurlock",
+        "email" : "iscurlock0@google.it",
+        "gender" : "Male",
+        "ip_address" : "218.117.128.169",
+        "age" : 47
+}
+{
+        "_id" : ObjectId("61168857d628584e98e28f5b"),
+        "first_name" : "Jenna",
+        "last_name" : "Stile",
+        "email" : "jstile1@lycos.com",
+        "gender" : "Female",
+        "ip_address" : "146.42.52.250",
+        "age" : 64
+}
+{
+        "_id" : ObjectId("61168ab0d628584e98e28f5c"),
+        "first_name" : "Alvinia",
+        "last_name" : "Jancy",
+        "email" : "ajancy0@w3.org",
+        "gender" : "Male",
+        "ip_address" : "13.199.181.255",
+        "age" : 33
+}
+{
+        "_id" : ObjectId("61168ab0d628584e98e28f5d"),
+        "first_name" : "Leeland",
+        "last_name" : "Brand",
+        "email" : "lbrand1@google.pl",
+        "gender" : "Male",
+        "ip_address" : "246.39.51.177",
+        "age" : 78
+}
+{
+        "_id" : ObjectId("61168ab0d628584e98e28f5e"),
+        "first_name" : "Waylon",
+        "last_name" : "Idle",
+        "email" : "widle2@so-net.ne.jp",
+        "gender" : "Genderfluid",
+        "ip_address" : "247.242.233.52",
+        "age" : 44
+}
+<------------------------------------------------------------------------------------insert------------------------------------------------------------------------------>
+> db.users.insert({ "first_name": "Roxine", "last_name": "Trencher", "email": "rtrencher3@nyu.edu", "gender": "Female","ip_address": "90.144.11.241","age": 27})
+WriteResult({ "nInserted" : 1 })
+> db.users.insertMany([{ "first_name": "Daniele", "last_name": "Learmount", "email": "dlearmount4@gravatar.com", "gender": "Male","ip_address": "203.144.104.95", "age": 44},{ "first_name": "Avram", "last_name": "Koppen", "email": "akoppen5@princeton.edu", "gender": "Female","ip_address": "6.4.132.49","age": 37},{ "first_name": "Janos","last_name": "Oman", "email": "joman6@parallels.com","gender": "Male", "ip_address": "87.194.38.125","age":20}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("61168c1bd628584e98e28f60"),
+                ObjectId("61168c1bd628584e98e28f61"),
+                ObjectId("61168c1bd628584e98e28f62")
+        ]
+}
+> db.users.find().pretty()
+{
+        "_id" : ObjectId("61167a7c1a41690cfe3dfe24"),
+        "first_name" : "Aurelie",
+        "last_name" : "Oneill",
+        "email" : "aoneill0@accuweather.com",
+        "gender" : "Female",
+        "ip_address" : "107.103.149.46",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("61168857d628584e98e28f5a"),
+        "first_name" : "Irv",
+        "last_name" : "Scurlock",
+        "email" : "iscurlock0@google.it",
+        "gender" : "Male",
+        "ip_address" : "218.117.128.169",
+        "age" : 47
+}
+{
+        "_id" : ObjectId("61168857d628584e98e28f5b"),
+        "first_name" : "Jenna",
+        "last_name" : "Stile",
+        "email" : "jstile1@lycos.com",
+        "gender" : "Female",
+        "ip_address" : "146.42.52.250",
+        "age" : 64
+}
+{
+        "_id" : ObjectId("61168ab0d628584e98e28f5c"),
+        "first_name" : "Alvinia",
+        "last_name" : "Jancy",
+        "email" : "ajancy0@w3.org",
+        "gender" : "Male",
+        "ip_address" : "13.199.181.255",
+        "age" : 33
+}
+{
+        "_id" : ObjectId("61168ab0d628584e98e28f5d"),
+        "first_name" : "Leeland",
+        "last_name" : "Brand",
+        "email" : "lbrand1@google.pl",
+        "gender" : "Male",
+        "ip_address" : "246.39.51.177",
+        "age" : 78
+}
+{
+        "_id" : ObjectId("61168ab0d628584e98e28f5e"),
+        "first_name" : "Waylon",
+        "last_name" : "Idle",
+        "email" : "widle2@so-net.ne.jp",
+        "gender" : "Genderfluid",
+        "ip_address" : "247.242.233.52",
+        "age" : 44
+}
+{
+        "_id" : ObjectId("61168b51d628584e98e28f5f"),
+        "first_name" : "Roxine",
+        "last_name" : "Trencher",
+        "email" : "rtrencher3@nyu.edu",
+        "gender" : "Female",
+        "ip_address" : "90.144.11.241",
+        "age" : 27
+}
+{
+        "_id" : ObjectId("61168c1bd628584e98e28f60"),
+        "first_name" : "Daniele",
+        "last_name" : "Learmount",
+        "email" : "dlearmount4@gravatar.com",
+        "gender" : "Male",
+        "ip_address" : "203.144.104.95",
+        "age" : 44
+}
+{
+        "_id" : ObjectId("61168c1bd628584e98e28f61"),
+        "first_name" : "Avram",
+        "last_name" : "Koppen",
+        "email" : "akoppen5@princeton.edu",
+        "gender" : "Female",
+        "ip_address" : "6.4.132.49",
+        "age" : 37
+}
+{
+        "_id" : ObjectId("61168c1bd628584e98e28f62"),
+        "first_name" : "Janos",
+        "last_name" : "Oman",
+        "email" : "joman6@parallels.com",
+        "gender" : "Male",
+        "ip_address" : "87.194.38.125",
+        "age" : 20
+}
+ db.users.findOne()
+{
+        "_id" : ObjectId("61167a7c1a41690cfe3dfe24"),
+        "first_name" : "Aurelie",
+        "last_name" : "Oneill",
+        "email" : "aoneill0@accuweather.com",
+        "gender" : "Female",
+        "ip_address" : "107.103.149.46",
+        "age" : 20
+}
+<--------------------------------------------------------------------------------------update--------------------------------------------------------------------->
+ db.users.update({"_id" : ObjectId("61167a7c1a41690cfe3dfe24")},{$set:{"gender":'Male'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+ db.users.findOne({'first_name':'Aurelie'})
+{
+        "_id" : ObjectId("61167a7c1a41690cfe3dfe24"),
+        "first_name" : "Aurelie",
+        "last_name" : "Oneill",
+        "email" : "aoneill0@accuweather.com",
+        "gender" : "Male",
+        "ip_address" : "107.103.149.46",
+        "age" : 20
+}
+<-----------------------------------------------------------------------------updateMany-------------------------------------------------------------------------->
+ db.users.updateMany({'age':{$gt:60}},{$set:{'gender':'Female'}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 1 }
+> db.users.find({'age':{$gt:60}})
+{ "_id" : ObjectId("61168857d628584e98e28f5b"), "first_name" : "Jenna", "last_name" : "Stile", "email" : "jstile1@lycos.com", "gender" : "Female", "ip_address" : "146.42.52.250", "age" : 64 }
+{ "_id" : ObjectId("61168ab0d628584e98e28f5d"), "first_name" : "Leeland", "last_name" : "Brand", "email" : "lbrand1@google.pl", "gender" : "Female", "ip_address" : "246.39.51.177", "age" : 78 }
+>
+<-----------------------------------------------------------------deleteOne---------------------------------------------------------------------------------------->
+ db.users.deleteOne({  "_id" : ObjectId("61168ab0d628584e98e28f5e")})
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+<----------------------------------------------------------------------------deleteMany-------------------------------------------------------------------------------->
+> db.users.deleteMany({'gender':'Female'})
+{ "acknowledged" : true, "deletedCount" : 4 }
+> db.users.find().pretty()
+{
+        "_id" : ObjectId("61167a7c1a41690cfe3dfe24"),
+        "first_name" : "Aurelie",
+        "last_name" : "Oneill",
+        "email" : "aoneill0@accuweather.com",
+        "gender" : "Male",
+        "ip_address" : "107.103.149.46",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("61168857d628584e98e28f5a"),
+        "first_name" : "Irv",
+        "last_name" : "Scurlock",
+        "email" : "iscurlock0@google.it",
+        "gender" : "Male",
+        "ip_address" : "218.117.128.169",
+        "age" : 47
+}
+{
+        "_id" : ObjectId("61168ab0d628584e98e28f5c"),
+        "first_name" : "Alvinia",
+        "last_name" : "Jancy",
+        "email" : "ajancy0@w3.org",
+        "gender" : "Male",
+        "ip_address" : "13.199.181.255",
+        "age" : 33
+}
+{
+        "_id" : ObjectId("61168c1bd628584e98e28f60"),
+        "first_name" : "Daniele",
+        "last_name" : "Learmount",
+        "email" : "dlearmount4@gravatar.com",
+        "gender" : "Male",
+        "ip_address" : "203.144.104.95",
+        "age" : 44
+}
+{
+        "_id" : ObjectId("61168c1bd628584e98e28f62"),
+        "first_name" : "Janos",
+        "last_name" : "Oman",
+        "email" : "joman6@parallels.com",
+        "gender" : "Male",
+        "ip_address" : "87.194.38.125",
+        "age" : 20
+}
+
+<--------------------------------------------------------------------delete database----------------------------------------------------------------------------->
+> db.dropDatabase()
+{ "ok" : 1 }
+> show dbs
+admin    0.000GB
+config   0.000GB
+local    0.000GB
+test123  0.000GB
+>
