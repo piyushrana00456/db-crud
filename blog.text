@@ -1,0 +1,60 @@
+create database blog;
+show databases;
+use blog;
+SELECT DATABASE;
+select database;
+show databases;
+use blog;
+CREATE table posts(id int auto_increment PRIMARY key, title VARCHAR(30) not null,content VARCHAR(80) not null, author VARCHAR(20) not null,
+ author_id INTEGER not null, FOREIGN KEY (author_id) REFERENCES authors(user_id));
+ ALTER table posts add COLUMN created_time time not null;
+ 
+ 
+ 
+ insert into posts(title,content,author,author_id,created_time) values("first post","this is my first post","Jhon Cena",1,NOW())
+ 
+ insert into posts(title,content,author,author_id,created_time) values("second post","this is my second post","Jhon Cena",1,NOW()),("first post","this is my first post","Piyush Rana",2,NOW());
+ 
+ 
+  insert into posts(title,content,author,author_id,created_time) values("second post","this is my second post","Randy Ortan",2,NOW()),("first post","this is my first post","Piyush Rana",3,NOW()),("second post","this is my second post","Piyush Rana",3,NOW()),("Third post","this is my third post","Piyush Rana",3,NOW());
+  
+   insert into posts(title,content,author,author_id,created_time) values("first post","this is my first post","Elon Musk",4,NOW()),("first post","this is my first post","Bill Gates",5,NOW()),("first post","this is my first post","Mark Zuckerberg",6,NOW());
+   
+create table authors (user_id int auto_increment primary key,first_name varchar(50) not null,last_name varchar(50) not null);
+insert into authors (first_name,last_name) values("Jhon","cena")
+insert into authors (first_name,last_name) values("Randy","Ortan")
+insert into authors (first_name,last_name) values("Piyush","Rana")
+insert into authors (first_name,last_name) values("Elon","Musk")
+insert into authors (first_name,last_name) values("Bill","Gates")
+insert into authors (first_name,last_name) values("Mark","Zuckerberg")
+
+
+    CREATE TABLE comments(id int auto_increment PRIMARY KEY, comment VARCHAR(80) not null, post VARCHAR(20) not null, post_id INTEGER not null, FOREIGN key(post_id) REFERENCES posts(id));
+   
+   insert into comments(comment,post,post_id) values ("If you want some, come get some!","first post",1),("You can’t see me!","first post",1),("The Chain Gang is in the house!","second post",2)
+
+ insert into comments(comment,post,post_id) values ("First,solve the problem.Then,write the code.","first post",5),("Talk is cheap Show me the code","first post",5),("Code is like humor. When you have to explain it, it’s bad.","second post",6),("In order to be irreplaceable,one must always be different","third post",7)
+ 
+  
+ 
+ insert into comments(comment,post,post_id) values ("Patience is a key element of success.","first post",8),("Life is too short for long-term grudges.","first post",8),("Any product that needs a manual to work is broken.","first post",8),("Life is not fair; get used to it.","third post",9),("If you can't make it good, at least make it look good.","first post",9),("The biggest risk is not taking any risk.","first post",10)
+ 
+ CREATE table tags(id int auto_increment PRIMARY key,tag VARCHAR(30) not null);
+ insert INTO tags(tag) values ("#codingForLife"),("#codeBlooded"),("#GoodLife"),("#inspirational"),("#HappyCoding"),("#builtDifferent"),("##codeathome")
+
+
+CREATE table post_tag(id int auto_increment primary key, post_id INTEGER not null, tag_id INTEGER not null, FOREIGN key(post_id) REFERENCES posts(id), FOREIGN key(tag_id) REFERENCES tags(id));
+
+
+insert into post_tag(post_id,tag_id) VALUES (1,1),(1,2),(1,5),(2,1),(2,3),(3,4),(3,6),(4,2),(5,1),(5,5),(5,7),(6,3),(6,2),(6,4),(7,7),(7,5),(8,2),(9,3),(10,2),(10,4),(10,5),(10,6);
+
+
+
+update authors set first_name="Johnass" where user_id=1;
+
+
+update `comments` set comment="Watch Me now" where id=3;
+
+update posts set title="second post" where id=10;
+
+update posts set content="this is my second post" where id=10;
